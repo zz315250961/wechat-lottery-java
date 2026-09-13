@@ -1,0 +1,31 @@
+import request from '@/utils/request'
+
+export const getPublicActivity = () => request({ url: '/lottery/public', method: 'get' })
+export const getMyLottery = () => request({ url: '/lottery/me', method: 'get' })
+export const testLogin = data => request({ url: '/lottery/auth/test-login', method: 'post', data })
+export const userLogout = () => request({ url: '/lottery/auth/logout', method: 'post' })
+export const checkIn = () => request({ url: '/lottery/check-in', method: 'post' })
+export const assist = inviterId => request({ url: '/lottery/assist', method: 'post', data: { inviterId } })
+export const draw = requestId => request({ url: '/lottery/draw', method: 'post', data: { requestId } })
+export const getTickets = () => request({ url: '/lottery/tickets', method: 'get' })
+export const merchantTickets = params => request({ url: '/lottery/merchant/tickets', method: 'get', params })
+export const merchantProfile = () => request({ url: '/lottery/merchant/profile', method: 'get' })
+export const redeemTicket = code => request({ url: '/lottery/merchant/redeem', method: 'post', data: { code } })
+export const adminOverview = () => request({ url: '/lottery/admin/overview', method: 'get' })
+export const saveActivity = data => request({ url: '/lottery/admin/activity', method: 'put', data })
+export const savePrize = data => request({ url: '/lottery/admin/prizes', method: 'post', data })
+export const deletePrize = id => request({ url: `/lottery/admin/prizes/${id}`, method: 'delete' })
+export const movePrize = (id, direction) => request({ url: `/lottery/admin/prizes/${id}/move`, method: 'put', params: { direction } })
+export const adminUsers = keyword => request({ url: '/lottery/admin/users', method: 'get', params: { keyword } })
+export const setLotteryUserEnabled = (id, enabled) => request({ url: `/lottery/admin/users/${id}/enabled`, method: 'put', params: { enabled } })
+export const adminTickets = keyword => request({ url: '/lottery/admin/tickets', method: 'get', params: { keyword } })
+export const getDirectives = () => request({ url: '/lottery/admin/directives', method: 'get' })
+export const addDirective = ({ userId, prizeId, count }) => request({ url: '/lottery/admin/directives', method: 'post', data: { userId, prizeId, count } })
+export const deleteDirective = id => request({ url: `/lottery/admin/directives/${id}`, method: 'delete' })
+export const saveRules = data => request({ url: '/lottery/admin/rules', method: 'put', data })
+export const saveMerchant = ({ id, name, username, password, address, usageRules, enabled }) => request({ url: '/lottery/admin/merchants', method: 'post', data: { id, name, username, password, address, usageRules, enabled } })
+export const getWechatStatus = () => request({ url: '/lottery/wechat/status', method: 'get' })
+export const getWechatConfig = url => request({ url: '/lottery/wechat/js-config', method: 'get', params: { url } })
+export const uploadImage = file => { const data=new FormData();data.append('file',file);return request({url:'/lottery/admin/upload-image',method:'post',data,headers:{'Content-Type':'multipart/form-data'}}) }
+// 保留旧名称，避免其他管理页在迁移期间改变请求参数或上传端点。
+export const uploadLotteryImage = uploadImage

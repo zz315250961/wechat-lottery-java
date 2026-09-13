@@ -1,0 +1,21 @@
+:root {
+  --lottery-orange: #f36a1c;
+  --lottery-orange-soft: #fff0e2;
+  --lottery-paper: #fffdf9;
+  --lottery-ink: #35271e;
+  --lottery-muted: #8b7b70;
+  --lottery-border: #eadfd5;
+  --lottery-shadow: 0 18px 44px rgb(71 42 21 / 12%);
+
+  --lottery-radius-sm: 8px;
+  --lottery-radius-md: 12px;
+  --lottery-radius-lg: 16px;
+  --lottery-radius-xl: 24px;
+
+  --lottery-space-1: 8px;
+  --lottery-space-2: 16px;
+  --lottery-space-3: 24px;
+  --lottery-space-4: 32px;
+  --lottery-space-5: 40px;
+  --lottery-space-6: 48px;
+}

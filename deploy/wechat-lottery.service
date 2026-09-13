@@ -1,0 +1,19 @@
+[Unit]
+Description=Lucky Lottery Java Service
+After=network.target mysql.service redis.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/wechat-lottery-java/backend
+EnvironmentFile=/opt/wechat-lottery-java/.env
+ExecStart=/usr/bin/java -Xms128m -Xmx384m -XX:MaxMetaspaceSize=160m -XX:+UseSerialGC -jar /opt/wechat-lottery-java/backend/ruoyi-admin.jar
+MemoryHigh=600M
+MemoryMax=700M
+CPUQuota=100%
+Nice=5
+Restart=always
+RestartSec=5
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

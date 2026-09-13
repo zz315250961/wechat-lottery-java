@@ -1,0 +1,14 @@
+.idea/
+.vscode/
+.env
+*.log
+**/target/
+**/node_modules/
+**/dist/
+**/.DS_Store
+uploadPath/
+.cert/
+*.pem
+*.key
+*.p12
+*.jks
